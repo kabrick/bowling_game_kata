@@ -16,4 +16,7 @@ class Game:
         if pins > 10:
             raise ValueError("Please enter valid number of pins. More than 10 entered")
 
-        self.current_roll += 1
+        if self.current_roll == 2:
+            self.current_roll = 1
+        else:
+            self.current_roll += 1

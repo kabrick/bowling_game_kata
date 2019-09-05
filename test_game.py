@@ -20,6 +20,12 @@ class TestGameRoll(TestGame):
         self.game.roll(7)
         self.assertEqual((initial_rolls + 1), self.game.current_roll)
 
+    def test_rolls_not_more_than_two(self):
+        self.game.roll(4)
+        self.game.roll(4)
+        self.game.roll(4)
+        self.assertLess(self.game.current_roll, 3)
+
 
 if __name__ == '__main__':
     unittest.main()
