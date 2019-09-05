@@ -32,6 +32,11 @@ class TestGameRoll(TestGame):
         self.game.roll(4)
         self.assertEqual((initial_frames + 1), self.game.current_frames)
 
+    def test_increase_pins_knocked_down_after_roll(self):
+        initial_pins = self.game.pins_knocked_down
+        self.game.roll(4)
+        self.assertEqual((initial_pins + 4), self.game.pins_knocked_down)
+
 
 if __name__ == '__main__':
     unittest.main()

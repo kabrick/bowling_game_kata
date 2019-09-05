@@ -22,3 +22,5 @@ class Game:
             self.current_frames += 1
         else:
             self.current_roll += 1
+
+        self.pins_knocked_down += pins
