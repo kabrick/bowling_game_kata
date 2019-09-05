@@ -26,6 +26,12 @@ class TestGameRoll(TestGame):
         self.game.roll(4)
         self.assertLess(self.game.current_roll, 3)
 
+    def test_increase_number_frames(self):
+        initial_frames = self.game.current_frames
+        self.game.roll(4)
+        self.game.roll(4)
+        self.assertEqual((initial_frames + 1), self.game.current_frames)
+
 
 if __name__ == '__main__':
     unittest.main()

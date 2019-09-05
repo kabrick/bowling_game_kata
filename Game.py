@@ -2,6 +2,7 @@ class Game:
 
     def __init__(self):
         self.frames = 10
+        self.current_frames = 1
         self.rolls = 2
         self.current_roll = 1
         self.pins = 10
@@ -18,5 +19,6 @@ class Game:
 
         if self.current_roll == 2:
             self.current_roll = 1
+            self.current_frames += 1
         else:
             self.current_roll += 1
