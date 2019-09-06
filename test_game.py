@@ -37,6 +37,12 @@ class TestGameRoll(TestGame):
         self.game.roll(4)
         self.assertEqual((initial_pins + 4), self.game.pins_knocked_down)
 
+    def test_only_10_pins_allowed_in_frame(self):
+        self.assertEqual(0, self.game.pins_knocked_down_in_frame)
+        self.game.roll(4)
+        self.assertRaises(ValueError, lambda: self.game.roll(8))
+        self.assertLess(self.game.pins_knocked_down_in_frame, 11)
+
 
 if __name__ == '__main__':
     unittest.main()
