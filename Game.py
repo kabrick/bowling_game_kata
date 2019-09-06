@@ -53,3 +53,6 @@ class Game:
             self.pins_knocked_down_in_frame = 0
         else:
             self.current_roll += 1
+
+    def score(self):
+        return self.pins_knocked_down + self.spares_bonus + self.strikes_bonus
