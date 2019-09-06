@@ -21,6 +21,9 @@ class Game:
         if (self.pins_knocked_down_in_frame + pins) > 10:
             raise ValueError("You can not enter more than 10 pins per frame")
 
+        if self.current_roll == 1 and pins == 10:
+            self.current_roll = 2
+
         self.pins_knocked_down_in_frame += pins
         self.pins_knocked_down += pins
 

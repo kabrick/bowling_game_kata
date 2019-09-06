@@ -43,6 +43,10 @@ class TestGameRoll(TestGame):
         self.assertRaises(ValueError, lambda: self.game.roll(8))
         self.assertLess(self.game.pins_knocked_down_in_frame, 11)
 
+    def test_skip_second_roll_in_frame_if_first_is_10(self):
+        self.game.roll(10)
+        self.assertEqual(1, self.game.current_roll)
+
 
 if __name__ == '__main__':
     unittest.main()
