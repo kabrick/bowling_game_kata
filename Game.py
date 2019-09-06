@@ -10,6 +10,7 @@ class Game:
         self.pins_knocked_down_in_frame = 0
         self.strikes = False
         self.strikes_bonus = 0
+        self.strikes_bonus_stage = 1
         self.spares = False
         self.spares_bonus = 0
 
@@ -27,8 +28,18 @@ class Game:
             self.spares_bonus += pins
             self.spares = False
 
+        if self.strikes:
+            if self.strikes_bonus_stage == 2:
+                self.strikes = False
+                self.strikes_bonus_stage = 1
+            else:
+                self.strikes_bonus_stage += 1
+
+            self.strikes_bonus += pins
+
         if self.current_roll == 1 and pins == 10:
             self.current_roll = 2
+            self.strikes = True
 
         self.pins_knocked_down_in_frame += pins
         self.pins_knocked_down += pins
